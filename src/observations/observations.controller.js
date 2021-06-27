@@ -1,6 +1,6 @@
 let nextId = 1;
 
-async function create(req, res) {
+const create = async (req, res) => {
   const newObservation = req.body.data;
 
   const now = new Date().toISOString();
