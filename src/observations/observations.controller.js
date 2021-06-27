@@ -1,4 +1,5 @@
 let nextId = 1;
+const observations = [];
 
 const validSkyConditions = [100, 101, 102, 103, 104, 106, 108, 109]
 
@@ -42,8 +43,16 @@ const create = async (req, res) => {
   newObservation.created_at = now;
   newObservation.updated_at = now;
 
+  observations.push(newObservation)
+
   res.status(201).json({
     data: newObservation,
+  });
+}
+
+const list = async (req, res) => {
+  res.json({
+    data: observations,
   });
 }
 
@@ -55,4 +64,5 @@ module.exports = {
     hasSkyCondition,
     create
   ],
+  list,
 };
