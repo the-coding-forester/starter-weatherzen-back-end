@@ -1,5 +1,8 @@
+const observationsRouter = require('./observations/observations.router');
 const express = require("express");
 const cors = require("cors");
+
+app.use("/observations", observationsRouter);
 
 const errorHandler = require("./errors/errorHandler");
 const notFound = require("./errors/notFound");
